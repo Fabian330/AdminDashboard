@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --bg1: #F0F0F0;
+    --bg2: #D0D0D0;
+    --text: #353535;
+    --text2: #F5F5F5;
+    --dark-blue: #050571;
+    --blue: #0064EC;
+    --light-blue: #8EBEFF;
+    --green: #17C233;
+    --light-green: #86FF9A;
+    --red: #E23527;
+    --light-red: #FFA19A;
+    --yellow: #D7E10B;
+    --light-yellow: #FAFF90;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--bg2);
+    overflow-x: hidden;
+}
+
+body.dark{
+    --bg1: #1A1A18;
+    --bg2: #464646;
+    --text: #F2F2F2;
+}
+
+.bx{
+    font-size: 2rem;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.sidebar{
+    background: var(--dark-blue);
+    position: fixed;
+    width: 230px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar .logo{
+    font-size: 22px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: var(--text2);
+    z-index: 1;
+    padding-bottom: 20px;
+    box-sizing: content-box;
+}
+
+.sidebar .logo-name{
+    position: fixed;
+    left: 55px;
+    transition: all 0.6s ease;
+}
+
+.sidebar .logo-name.hide{
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 0s ease;
+}
+
+.sidebar .logo .bx{
+    padding: 0 10px;
+    font-size: 2.5rem;
+}
+
+.sidebar::-webkit-scrollbar{
+    display: none;
+}
+
+.sidebar.close{
+    width: 60px;
+}
+
+.sidebar .side-links{
+    margin-top: 48px;
+}
+
+.sidebar .side-links li{
+    height: 50px;
+    background: transparent;
+    margin-left: 10px;
+    border-radius: 50px 0 0 50px;
+    padding: 5px;
+}
+
+.sidebar .side-links li.active{
+    background: var(--bg2);
+    position: relative;
+}
+
+.sidebar .side-links li.active::before{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: -30px;
+    right: 0px;
+    box-shadow: 15px 15px 0 var(--bg2);
+    z-index: -1;
+}
+
+.sidebar .side-links li.active::after{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    bottom: -30px;
+    right: 0px;
+    box-shadow: 15px -15px 0 var(--bg2);
+    z-index: -1;
+}
+
+.sidebar .side-links li a{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    font-size: 18px;
+    color: var(--text2);
+    padding-left: 4px;
+    gap: 10px;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar.close .side-links li a{
+    width: 40px;
+}
+
+.sidebar .side-links li.active a{
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.sidebar .side-links li a.logout{
+    color: var(--red);
+}
+
+.container{
+    position: relative;
+    left: 230px;
+    width: calc(100% - 230px);
+    transition: all 0.5s ease;
+}
+
+.sidebar.close~.container{
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+.container nav{
+    background: var(--bg1);
+    height: 56px;
+    padding: 0 30px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.container nav a{
+    color: var(--text);
+}
+
+.container nav .bx.bx-menu{
+    cursor: pointer;
+    color: var(--text);
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.container nav .notif{
+    position: relative;
+}
+
+.container nav .notif .count{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    background: var(--red);
+    border-radius: 50%;
+    color: var(--bg1);
+    border: 2px solid var(--bg1);
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container nav .profile img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--text);
+}
+
+.container nav .theme-toggle{
+    display: block;
+    background: var(--bg2);
+    min-width: 50px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50px;
+}
+
+.container nav .theme-toggle::before{
+    content: "";
+    position: absolute;
+    background: var(--blue);
+    width: 21px;
+    height: 21px;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.container nav #theme-toggle:checked+.theme-toggle::before{
+    transform: translateX(25px);
+}
+
+.container main{
+    width: 100%;
+    padding: 15px 25px;
+    max-height: calc(100vh - 56px);
+}
+
+.container main .header{
+    display: flex;
+    align-items: center;
+}
+
+.container main .header h1{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.container main .cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.container main .cards li{
+    padding: 24px;
+    background: var(--bg1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container main .cards li:hover{
+    box-shadow: 0 0 5px var(--text);
+}
+
+.container main .cards li .bx{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container main .cards li:nth-child(1) .bx{
+    background: var(--light-blue);
+    color: var(--blue);
+}
+
+.container main .cards li:nth-child(2) .bx{
+    background: var(--light-green);
+    color: var(--green);
+}
+
+.container main .cards li:nth-child(3) .bx{
+    background: var(--light-red);
+    color: var(--red);
+}
+
+.container main .cards li:nth-child(4) .bx{
+    background: var(--light-yellow);
+    color: var(--yellow);
+}
+
+.container main .cards li .info h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.container main .cards li .info p{
+    color: var(--text);
+}
+
+.container main .bottom{
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    color: var(--text);
+}
+
+.container main .bottom>div{
+    background: var(--bg1);
+    border-radius: 20px;
+    padding: 24px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.container main .bottom .header{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.container main .bottom .header h3{
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: default;
+}
+
+.container main .bottom .header div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.container main .bottom .header div a{
+    color: var(--blue);
+}
+
+.container main .bottom .header div .bx{
+    color: var(--blue);
+    font-size: 28px;
+}
+
+.container main .bottom .jobs{
+    flex-grow: 1;
+    flex-basis: 500px;
+    max-height: 320px;
+    overflow-y: hidden;
+    padding-bottom: 80px;
+}
+
+.container main .bottom .jobs div{
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.container main .bottom .jobs table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container main .bottom .jobs table td{
+    padding: 10px 0;
+    cursor: default;
+}
+
+.container main .bottom .jobs table tr td:first-child{
+    padding-left: 10px;
+}
+
+.container main .bottom .jobs table tbody tr{
+    transition: all 0.3s ease;
+}
+
+.container main .bottom .jobs table tbody tr:hover{
+    background: var(--bg2);
+}
+
+.container main .bottom .jobs table tr td .applicants{
+    background-color: var(--blue);
+    color: var(--bg1);
+    padding: 2px 0;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.container main .bottom .reminders{
+    flex-grow: 1;
+    flex-basis: 300px;
+    max-height: 320px;
+    overflow-y: hidden;
+    padding-bottom: 80px;
+}
+
+.container main .bottom .reminders .header .bx.bx-plus{
+    cursor: pointer;
+}
+
+.container main .bottom .reminders .task-list{
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.container main .bottom .reminders .task-list li{
+    background: var(--bg2);
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 14px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container main .bottom .reminders .task-list li .task-title{
+    display: flex;
+    align-items: center;
+}
+
+.container main .bottom .reminders .task-list li .task-title p{
+    margin-left: 6px;
+}
+
+.container main .bottom .reminders .task-list li .bx.bx-dots-vertical-rounded{
+    cursor: pointer;
+}
+
+.container main .bottom .reminders .task-list li.completed{
+    border-left: 10px solid var(--green);
+}
+
+.container main .bottom .reminders .task-list li.not-completed{
+    border-left: 10px solid var(--red);
+}
+
+.container main .bottom .reminders .task-list li:last-child{
+    margin-bottom: 0px;
+}
+
+@media (max-width: 1300px){
+    .container main .bottom{
+        flex-direction: column;
+    }
+
+    .container main .bottom>div{
+        margin-bottom: 0;
+    }
+
+    .container main .bottom .reminders{
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 1260px){
+    .container main .cards{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 900px){
+    .container main .bottom .jobs table{
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 768px){
+    .sidebar{
+        width: 200px;
+    }
+
+    .sidebar .logo{
+        flex-direction: column;
+    }
+
+    .sidebar .logo-name{
+        position: unset;
+        left: 0;
+        transition: all 0.8s ease;
+    }
+
+    .sidebar .logo-name.hide{
+        opacity: 0;
+        transform: translateX(-100px);
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .logo-name{
+        position: unset;
+        left: 0;
+    }
+
+    .container{
+        width: calc(100% - 60px);
+        left: 200px;
+    }
+
+    .container main .cards{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container main .bottom>div{
+        margin-bottom: 0;
+    }
+
+    .container main .bottom .jobs table{
+        font-size: 16px;
+    }
+
+    .container main .bottom .reminders{
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 660px){
+    .container main .bottom .jobs table tr td:nth-child(2),
+    .container main .bottom .jobs table tr td:nth-child(3){
+        display: none;
+    }
+}
+
+@media (max-width: 600px){
+    .container main .cards{
+        grid-template-columns: 1fr;
+    }
+}

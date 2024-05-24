@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-cube'></i>
+            <div id="logo-name" class="logo-name">Admin Panel</div>
+        </a>
+        <ul class="side-links">
+            <li class="active"><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="#"><i class='bx bx-user'></i>Users</a></li>
+            <li><a href="#"><i class='bx bx-message-rounded-detail'></i>Messages</a></li>
+            <li><a href="#"><i class='bx bx-wrench'></i></i>Settings</a></li>
+        </ul>
+        <ul class="side-links">
+            <li><a href="#" class="logout"><i class='bx bx-log-out-circle' ></i>Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <nav>
+            <i class='bx bx-menu' id="menuIcon"></i>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">4</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="images/logo.png">
+            </a>
+        </nav>
+
+        <main>
+            <div class="header">
+                <h1>Dashboard</h1>
+            </div>
+
+            <ul class="cards">
+                <li>
+                    <i class='bx bxs-badge-dollar' ></i>
+                    <span class="info">
+                        <h3>$5,254</h3>
+                        <p>Total sales</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-show-alt' ></i>
+                    <span class="info">
+                        <h3>142K</h3>
+                        <p>Visits</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-line-chart' ></i>
+                    <span class="info">
+                        <h3>223K</h3>
+                        <p>Searches</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bx-file'></i>
+                    <span class="info">
+                        <h3>6</h3>
+                        <p>Projects</p>
+                    </span>
+                </li>
+            </ul>
+            
+            <div class="bottom">
+                <div class="jobs">
+                    <div class="header">
+                        <i class='bx bx-briefcase-alt-2'></i>
+                        <h3>Jobs</h3>
+                        <div>
+                            <a href="#">See all jobs</a>
+                            <i class='bx bx-right-arrow-circle'></i>
+                        </div>
+                    </div>
+                    <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>FullStack Developer</td>
+                                <td>Company</td>
+                                <td>Posted 7 days ago</td>
+                                <td><button class="applicants" href="#">9 applicants</button></td>
+                            </tr>
+                            <tr>
+                                <td>Backend Developer</td>
+                                <td>Company</td>
+                                <td>Posted 2 days ago</td>
+                                <td><button class="applicants" href="#">14 applicants</button></td>
+                            </tr>
+                            <tr>
+                                <td>Frontend Developer</td>
+                                <td>Company</td>
+                                <td>Posted 5 days ago</td>
+                                <td><button class="applicants" href="#">12 applicants</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+
+                <div class="reminders">
+                    <div class="header">
+                        <i class='bx bx-note' ></i>
+                        <h3>Reminders</h3>
+                        <i class='bx bx-plus' ></i>
+                    </div>
+                    <ul class="task-list">
+                        <li class="completed">
+                            <div class="task-title">
+                                <i class='bx bx-check-circle' ></i>
+                                <p>Start the Meeting</p>
+                            </div>
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                        <li class="completed">
+                            <div class="task-title">
+                                <i class='bx bx-check-circle' ></i>
+                                <p>Complete the 2nd project first</p>
+                            </div>
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                        <li class="not-completed">
+                            <div class="task-title">
+                                <i class='bx bx-x-circle' ></i>
+                                <p>Take a 10 minutes break</p>
+                            </div>
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
